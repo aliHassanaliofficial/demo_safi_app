@@ -68,6 +68,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Au',
           path: '/au',
           builder: (context, params) => const AuWidget(),
+        ),
+        FFRoute(
+          name: 'Details05Event',
+          path: '/details05Event',
+          builder: (context, params) => const Details05EventWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

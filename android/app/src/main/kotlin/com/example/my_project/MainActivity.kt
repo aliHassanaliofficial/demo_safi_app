@@ -1,4 +1,4 @@
-package com.mycompany.safi
+package com.eraengines.safi
 
 import io.flutter.embedding.android.FlutterActivity
 

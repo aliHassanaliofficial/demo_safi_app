@@ -1,0 +1,4 @@
+PermissionGroupNotification = "For the application demo version testing";
+NSLocationWhenInUseUsageDescription = "For the application demo version testing";
+NSMicrophoneUsageDescription = "For the application demo version testing";
+NSCameraUsageDescription = "For the application demo version testing";

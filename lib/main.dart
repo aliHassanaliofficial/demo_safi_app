@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'flutter_flow/internationalization.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,6 +12,8 @@ void main() async {
   usePathUrlStrategy();
 
   await FlutterFlowTheme.initialize();
+
+  await FFLocalizations.initialize();
 
   runApp(const MyApp());
 }
@@ -27,6 +30,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Locale? _locale = FFLocalizations.getStoredLocale();
+
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
   late AppStateNotifier _appStateNotifier;
@@ -45,6 +50,11 @@ class _MyAppState extends State<MyApp> {
         () => safeSetState(() => _appStateNotifier.stopShowingSplashImage()));
   }
 
+  void setLocale(String language) {
+    safeSetState(() => _locale = createLocale(language));
+    FFLocalizations.storeLocale(language);
+  }
+
   void setThemeMode(ThemeMode mode) => safeSetState(() {
         _themeMode = mode;
         FlutterFlowTheme.saveThemeMode(mode);
@@ -55,11 +65,18 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       title: 'SAFI',
       localizationsDelegates: const [
+        FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        FallbackMaterialLocalizationDelegate(),
+        FallbackCupertinoLocalizationDelegate(),
       ],
-      supportedLocales: const [Locale('en', '')],
+      locale: _locale,
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ar'),
+      ],
       theme: ThemeData(
         brightness: Brightness.light,
         useMaterial3: false,

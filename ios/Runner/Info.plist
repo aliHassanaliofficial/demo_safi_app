@@ -16,6 +16,11 @@
 	<string>SAFI</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>ar</string>
+	</array>
 
 	<key>CFBundleShortVersionString</key>
 	<string>$(FLUTTER_BUILD_NAME)</string>
@@ -43,7 +48,14 @@
 	<true/>
 
 
-
+	<key>PermissionGroupNotification</key>
+    <string>For the application demo version testing</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>For the application demo version testing</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>For the application demo version testing</string>
+	<key>NSCameraUsageDescription</key>
+    <string>For the application demo version testing</string>
 
 
 	<key>UILaunchStoryboardName</key>
